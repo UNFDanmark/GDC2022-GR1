@@ -14,13 +14,16 @@ public class playerMovement : MonoBehaviour
     public float attackLength = 0.8f;
     Rigidbody rb;
     Vector3 attackDirection;
+    public int health = 3;
 
     //block
     Vector3 blockDirection;
     float lastBlockTime = -100f;
     public float blockLength;
     public float blockForce;
-
+    public bool isAttacking;
+    public bool canDamage;
+    public Collider swordCollider;
 
 
     // Start is called before the first frame update
@@ -32,6 +35,7 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    
         if (player1)
         {
             float moveInput = Input.GetAxis("Vertical");//Variable for move input
@@ -56,13 +60,16 @@ public class playerMovement : MonoBehaviour
 
             }
 
-            bool isAttacking = lastAttackTime + attackLength >= Time.time;
+            isAttacking = lastAttackTime + attackLength >= Time.time;
 
             if (isAttacking)
             {
                 rb.velocity = attackDirection;
                 gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
+                
+                canDamage=true;
             }
+
 
             bool blockInput = Input.GetKeyDown(KeyCode.E);
             if (blockInput)
@@ -112,7 +119,9 @@ public class playerMovement : MonoBehaviour
             {
                 rb.velocity = attackDirection;
                 gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
+               
             }
+
 
             bool blockInput = Input.GetKeyDown(KeyCode.PageDown);
             if (blockInput)
@@ -133,15 +142,33 @@ public class playerMovement : MonoBehaviour
             }
         }
 
-
-
+        
+        
 
 
 
 
     }
 
-    
 
+    public void takeDamage(int damageToTake)
+    {
+        health -= damageToTake;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+
+
+
+        bool isSword = collision.gameObject.tag == "Sword";
+        if (isSword && canDamage)
+        {
+            print("sword");
+            takeDamage(1);
+            canDamage = false;
+        }
+        canDamage = false;
+    }
 
 }
