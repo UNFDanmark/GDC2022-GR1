@@ -12,6 +12,10 @@ public class playerMovement : MonoBehaviour
     float lastAttackTime = -100f;
     public float attackLength = 0.8f;
     Rigidbody rb;
+    public Animator animator;
+    public GameObject capsule;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +42,7 @@ public class playerMovement : MonoBehaviour
         {
 
 
-            //rb.rotation = transform.rotation * rotationforce;
+
             lastAttackTime = Time.time;
 
         }
@@ -47,15 +51,12 @@ public class playerMovement : MonoBehaviour
 
         if (isAttacking)
         {
-            rb.velocity = (transform.forward * attackforce);
+            animator.SetTrigger("attackTrigger");
         }
 
 
-        
-
     }
 
-    
 
 
 }
