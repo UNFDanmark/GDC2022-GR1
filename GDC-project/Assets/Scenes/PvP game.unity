@@ -278,8 +278,12 @@ MonoBehaviour:
   attackforce: 20
   rotationforce: 5
   attackLength: 0.1
+  health: 3
   blockLength: 0.1
   blockForce: 20
+  isAttacking: 0
+  canDamage: 0
+  swordCollider: {fileID: 0}
 --- !u!4 &41568412
 Transform:
   m_ObjectHideFlags: 0
@@ -405,6 +409,7 @@ GameObject:
   - component: {fileID: 249352086}
   - component: {fileID: 249352085}
   - component: {fileID: 249352084}
+  - component: {fileID: 249352087}
   m_Layer: 0
   m_Name: sword
   m_TagString: Sword
@@ -490,6 +495,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249352082}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &249352087
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249352082}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &374302837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,9 +1590,13 @@ MonoBehaviour:
   turnSpeed: 10
   attackforce: 20
   rotationforce: 5
-  attackLength: 0.1
+  attackLength: 0.2
+  health: 3
   blockLength: 0.1
   blockForce: 20
+  isAttacking: 0
+  canDamage: 0
+  swordCollider: {fileID: 249352084}
 --- !u!4 &2032040130
 Transform:
   m_ObjectHideFlags: 0
