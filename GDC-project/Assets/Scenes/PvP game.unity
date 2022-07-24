@@ -134,8 +134,6 @@ GameObject:
   - component: {fileID: 26127888}
   - component: {fileID: 26127891}
   - component: {fileID: 26127890}
-  - component: {fileID: 26127892}
-  - component: {fileID: 26127893}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
@@ -211,39 +209,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26127887}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!95 &26127892
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 26127887}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c9f9bd3e2fa422942a15e5ca0e7fa35e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &26127893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 26127887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d72ba4f73e57c47b62267919136108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 2032040127}
 --- !u!1 &199222529
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,9 +756,9 @@ MonoBehaviour:
   turnSpeed: 10
   attackforce: 20
   rotationforce: 5
-  attackLength: 0.15
-  animator: {fileID: 26127892}
-  capsule: {fileID: 26127887}
+  attackLength: 0.1
+  blockLength: 0.1
+  blockForce: 20
 --- !u!4 &2032040130
 Transform:
   m_ObjectHideFlags: 0

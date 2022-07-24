@@ -12,8 +12,13 @@ public class playerMovement : MonoBehaviour
     float lastAttackTime = -100f;
     public float attackLength = 0.8f;
     Rigidbody rb;
-    public Animator animator;
-    public GameObject capsule;
+    Vector3 attackDirection;
+
+    //block
+    Vector3 blockDirection;
+    float lastBlockTime = -100f;
+    public float blockLength;
+    public float blockForce;
 
 
 
@@ -41,7 +46,7 @@ public class playerMovement : MonoBehaviour
         if (attackInput)
         {
 
-
+            attackDirection = transform.forward * attackforce;
 
             lastAttackTime = Time.time;
 
@@ -51,12 +56,38 @@ public class playerMovement : MonoBehaviour
 
         if (isAttacking)
         {
-            animator.SetTrigger("attackTrigger");
+            rb.velocity = attackDirection;
+            gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
         }
+
+        bool blockInput = Input.GetKeyDown(KeyCode.E);
+        if (blockInput)
+        {
+
+            blockDirection = transform.forward * blockForce;
+
+            lastBlockTime = Time.time;
+
+        }
+
+        bool isBlocking = lastBlockTime + blockLength >= Time.time;
+
+        if (isBlocking)
+        {
+            rb.velocity = -blockDirection;
+            gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
+        }
+
+
+
+
+
+
 
 
     }
 
+    
 
 
 }
