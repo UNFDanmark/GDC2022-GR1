@@ -7,6 +7,10 @@ public class playerMovement : MonoBehaviour
 
     public float speed;
     public float turnSpeed = 1;
+    public float attackforce;
+    public float rotationforce;
+    float lastAttackTime = -100f;
+    public float attackLength = 0.8f;
     Rigidbody rb;
 
     // Start is called before the first frame update
@@ -25,8 +29,33 @@ public class playerMovement : MonoBehaviour
 
         Vector3 newVelocity = transform.forward * moveSpeed;
         newVelocity.y = rb.velocity.y;
+        rb.velocity = newVelocity; //Sets velocity of the player to movespeed in the forward direction
+
         gameObject.GetComponent<Transform>().Rotate(Vector3.up * turnInput * turnSpeed); // Rotates the player around Y-axis
 
-        rb.velocity = newVelocity; //Sets velocity of the player to movespeed in the forward direction
+        bool attackInput = Input.GetKeyDown(KeyCode.Q);
+        if (attackInput)
+        {
+
+
+            //rb.rotation = transform.rotation * rotationforce;
+            lastAttackTime = Time.time;
+
+        }
+
+        bool isAttacking = lastAttackTime + attackLength >= Time.time;
+
+        if (isAttacking)
+        {
+            rb.velocity = (transform.forward * attackforce);
+        }
+
+
+        
+
     }
+
+    
+
+
 }
