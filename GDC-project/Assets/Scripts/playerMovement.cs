@@ -162,13 +162,13 @@ public class playerMovement : MonoBehaviour
 
 
         bool isSword = collision.gameObject.tag == "Sword";
-        if (isSword && canDamage)
+        if (isSword && swordCollider.enabled)
         {
             print("sword");
             takeDamage(1);
-            canDamage = false;
+            
         }
-        canDamage = false;
+        
     }
 
 }

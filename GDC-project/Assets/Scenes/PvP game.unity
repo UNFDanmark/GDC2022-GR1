@@ -274,7 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: 0
   speed: 10
-  turnSpeed: 10
+  turnSpeed: 3
   attackforce: 20
   rotationforce: 5
   attackLength: 0.1
@@ -1587,7 +1587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: 1
   speed: 10
-  turnSpeed: 10
+  turnSpeed: 3
   attackforce: 20
   rotationforce: 5
   attackLength: 0.2
