@@ -24,6 +24,7 @@ public class playerMovement : MonoBehaviour
     public bool isAttacking;
 
     public GameObject swordCollider;
+    public GameObject blockCollider;
 
 
     // Start is called before the first frame update
@@ -106,6 +107,12 @@ public class playerMovement : MonoBehaviour
             {
                 rb.velocity = -blockDirection;
                 gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
+
+                blockCollider.GetComponent<BoxCollider>().enabled=true;
+            }
+            else
+            {
+                blockCollider.GetComponent<BoxCollider>().enabled = false;
             }
         }
         else
@@ -166,7 +173,14 @@ public class playerMovement : MonoBehaviour
             {
                 rb.velocity = -blockDirection;
                 gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
+
+                blockCollider.GetComponent<BoxCollider>().enabled = true;
             }
+            else
+            {
+                blockCollider.GetComponent<BoxCollider>().enabled = false;
+            }
+
         }
 
         
@@ -186,15 +200,11 @@ public class playerMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         bool isSword = collision.gameObject.tag == "Sword";
-        print(player1 ? "Player 1 has collided with " + collision.collider.gameObject.name + ". That is " + (isSword ? "a sword" : "not a sword")
-            : "Player 2 has collided with " + collision.collider.gameObject.name + ". That is " + (isSword ? "a sword" : "not a sword"));
-
+       
 
         if (isSword)
         {
-            print(player1 ? "Player 1 has collided with a sword" : "Player 2 has collided with a sword");
             takeDamage(1);
-            
         }
         
     }
