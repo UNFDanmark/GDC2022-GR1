@@ -22,8 +22,8 @@ public class playerMovement : MonoBehaviour
     public float blockLength;
     public float blockForce;
     public bool isAttacking;
-    public bool canDamage;
-    public Collider swordCollider;
+
+    public GameObject swordCollider;
 
 
     // Start is called before the first frame update
@@ -35,11 +35,23 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health == 0)
+        {
+            //respawn code
+
+            //Death count code
+        } 
+
+
+
     
         if (player1)
         {
             float moveInput = Input.GetAxis("Vertical");//Variable for move input
             float turnInput = Input.GetAxis("Horizontal");
+
+
+
 
 
             float moveSpeed = speed * moveInput;
@@ -58,7 +70,10 @@ public class playerMovement : MonoBehaviour
 
                 lastAttackTime = Time.time;
 
+
+
             }
+
 
             isAttacking = lastAttackTime + attackLength >= Time.time;
 
@@ -66,8 +81,12 @@ public class playerMovement : MonoBehaviour
             {
                 rb.velocity = attackDirection;
                 gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
-                
-                canDamage=true;
+
+                swordCollider.GetComponent<BoxCollider>().enabled = true;
+            }
+            else
+            {
+                swordCollider.GetComponent<BoxCollider>().enabled = false;
             }
 
 
@@ -111,7 +130,10 @@ public class playerMovement : MonoBehaviour
 
                 lastAttackTime = Time.time;
 
+
+
             }
+
 
             bool isAttacking = lastAttackTime + attackLength >= Time.time;
 
@@ -119,7 +141,12 @@ public class playerMovement : MonoBehaviour
             {
                 rb.velocity = attackDirection;
                 gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
-               
+
+                swordCollider.GetComponent<BoxCollider>().enabled = true;
+            }
+            else
+            {
+                swordCollider.GetComponent<BoxCollider>().enabled = false;
             }
 
 
@@ -158,13 +185,14 @@ public class playerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
-
-
         bool isSword = collision.gameObject.tag == "Sword";
-        if (isSword && swordCollider.enabled)
+        print(player1 ? "Player 1 has collided with " + collision.collider.gameObject.name + ". That is " + (isSword ? "a sword" : "not a sword")
+            : "Player 2 has collided with " + collision.collider.gameObject.name + ". That is " + (isSword ? "a sword" : "not a sword"));
+
+
+        if (isSword)
         {
-            print("sword");
+            print(player1 ? "Player 1 has collided with a sword" : "Player 2 has collided with a sword");
             takeDamage(1);
             
         }
