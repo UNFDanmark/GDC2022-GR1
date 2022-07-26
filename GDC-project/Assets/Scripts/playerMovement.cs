@@ -87,7 +87,7 @@ public class playerMovement : MonoBehaviour
             }
             else
             {
-                swordCollider.GetComponent<BoxCollider>().enabled = false;
+                //swordCollider.GetComponent<BoxCollider>().enabled = false;
             }
 
 
@@ -178,7 +178,7 @@ public class playerMovement : MonoBehaviour
             }
             else
             {
-                blockCollider.GetComponent<BoxCollider>().enabled = false;
+                //blockCollider.GetComponent<BoxCollider>().enabled = false;
             }
 
         }
@@ -206,7 +206,8 @@ public class playerMovement : MonoBehaviour
         {
             takeDamage(1);
         }
-        
+
+       
     }
 
 }
