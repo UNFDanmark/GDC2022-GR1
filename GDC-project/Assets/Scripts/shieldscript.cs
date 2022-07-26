@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class shieldscript : MonoBehaviour
 {
+    public GameObject opponent;
     public GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -25,9 +26,12 @@ public class shieldscript : MonoBehaviour
         {
             print("hit");
            
-            Vector3 direction=collision.transform.forward;
+            //Vector3 direction=collision.transform.position;
 
-            player.GetComponent<Rigidbody>().velocity = direction*100;
+            Vector3 direction=player.GetComponent<Transform>().position - opponent.GetComponent<Transform>().position ;
+
+            opponent.GetComponent<Rigidbody>().velocity = -direction * 100;
+
         }
 
 
