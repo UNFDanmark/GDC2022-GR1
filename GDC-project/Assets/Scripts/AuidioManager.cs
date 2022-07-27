@@ -9,7 +9,7 @@ public enum sfx
 
 public class AuidioManager : MonoBehaviour
 {
-
+    public AudioSource MusicSource;
     public AudioSource SFXSource;
 
     public AudioClip[] hitSounds;
@@ -37,6 +37,10 @@ public class AuidioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SFXSource.volume = MainMenu.sfxVolume;
+        MusicSource.volume = MainMenu.musicVolume;
+
+
         if (Input.GetKeyDown(KeyCode.V))
         {
             playSound(sfxMode);

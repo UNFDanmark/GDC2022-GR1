@@ -19,6 +19,8 @@ public class MainMenu : MonoBehaviour
     public AudioSource music;
     public AudioSource sfxV;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,4 +57,14 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+
+    public void moreTime()
+    {
+    }
+
+    public void lessTime()
+    {
+   }
 }
+
