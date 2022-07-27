@@ -34,7 +34,9 @@ public class playerMovement : MonoBehaviour
     public GameObject reaspawnPoint;
     public GameObject healthBar;
     public TextMeshProUGUI scoreText;
-    
+    AuidioManager audioManager;
+
+
 
     Rigidbody rb;
     Vector3 attackDirection;
@@ -55,6 +57,7 @@ public class playerMovement : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody>();
         lastAttackTime = Time.time - attackCooldownTime;
+        audioManager = GameObject.Find("AudioManager").GetComponent<AuidioManager>();
     }
 
     // Update is called once per frame
@@ -72,7 +75,6 @@ public class playerMovement : MonoBehaviour
             deathCount += 1;
 
             scoreText.text = deathCount.ToString();
-
         } 
 
 
@@ -119,7 +121,7 @@ public class playerMovement : MonoBehaviour
             }
             else
             {
-                //swordCollider.GetComponent<BoxCollider>().enabled = false;
+                swordCollider.GetComponent<BoxCollider>().enabled = false;
             }
 
             bool canBlock = lastBlockTime + blockCooldownTime <= Time.time;
@@ -138,7 +140,7 @@ public class playerMovement : MonoBehaviour
             if (isBlocking)
             {
                 rb.velocity = blockDirection;
-                gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
+                gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
 
                 blockCollider.GetComponent<BoxCollider>().enabled=true;
             }
@@ -205,13 +207,13 @@ public class playerMovement : MonoBehaviour
             if (isBlocking)
             {
                 rb.velocity = blockDirection;
-                gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
+                gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
 
                 blockCollider.GetComponent<BoxCollider>().enabled = true;
             }
             else
             {
-                //blockCollider.GetComponent<BoxCollider>().enabled = false;
+                blockCollider.GetComponent<BoxCollider>().enabled = false;
             }
 
         }
