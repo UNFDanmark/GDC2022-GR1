@@ -11,6 +11,7 @@ public class shieldscript : MonoBehaviour
     public GameObject player;
     AuidioManager audioManager;
     public GameObject healthBar;
+    public playerMovement playerInv;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,8 +40,9 @@ public class shieldscript : MonoBehaviour
 
             opponent.GetComponent<Rigidbody>().velocity = -direction * knockbackForce;
 
-            print(opponent.GetComponent<playerMovement>().health);
             opponent.GetComponent<playerMovement>().health -= 1;
+            playerInv.invounrabilitytime = 1;
+            
 
 
             Image healthUIImage = healthBar.GetComponent<Image>();

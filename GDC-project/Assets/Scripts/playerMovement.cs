@@ -8,6 +8,7 @@ using TMPro;
 public class playerMovement : MonoBehaviour
 {
     public bool player1 =true;
+    public float invounrabilitytime;
 
     public int health = 3;
     public int deathCount;
@@ -63,6 +64,9 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        invounrabilitytime -= Time.deltaTime;
+
         if (health == 0)
         {
             health = 3;
@@ -124,7 +128,7 @@ public class playerMovement : MonoBehaviour
                 swordCollider.GetComponent<BoxCollider>().enabled = false;
             }
 
-            bool canBlock = lastBlockTime + blockCooldownTime >= Time.time;
+            bool canBlock = lastBlockTime + blockCooldownTime <= Time.time;
             bool blockInput = Input.GetKeyDown(KeyCode.Q);
             if (blockInput && canBlock)
             {
@@ -142,7 +146,7 @@ public class playerMovement : MonoBehaviour
                 rb.velocity = blockDirection;
                 gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
 
-                blockCollider.GetComponent<BoxCollider>().enabled=true;
+                blockCollider.GetComponent<BoxCollider>().enabled = true;
             }
             else
             {
@@ -235,20 +239,20 @@ public class playerMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         bool isSword = collision.gameObject.tag == "Sword";
-       
 
-        if (isSword)
+
+        bool invounrability = invounrabilitytime < 0;
+
+        if (isSword && invounrability)
         {
             takeDamage(1);
 
-            
+            invounrabilitytime = 1;
+
             Image healthUIImage = healthBar.GetComponent<Image>();
             healthUIImage.fillAmount = (float)health / (float)3;
 
 
         }
-
-       
     }
-
 }
