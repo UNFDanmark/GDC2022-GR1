@@ -192,6 +192,7 @@ MonoBehaviour:
   speed: 47
   turnSpeed: 3.15
   attackforce: 8.15
+  invounrabilitytime: 0
   attackLength: 0.2
   attackCooldownTime: 1.5
   blockCooldownTime: 1.5
@@ -454,6 +455,7 @@ MonoBehaviour:
   knockbackForce: 8
   opponent: {fileID: 41568408}
   player: {fileID: 531920104}
+  healthBar: {fileID: 0}
 --- !u!54 &389931521
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -574,6 +576,7 @@ MonoBehaviour:
   knockbackForce: 8
   opponent: {fileID: 531920104}
   player: {fileID: 41568408}
+  healthBar: {fileID: 0}
 --- !u!54 &484650721
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -702,6 +705,7 @@ MonoBehaviour:
   speed: 47
   turnSpeed: 3.15
   attackforce: 8.15
+  invounrabilitytime: 0
   attackLength: 0.2
   attackCooldownTime: 1.5
   blockCooldownTime: 1.5
@@ -710,7 +714,7 @@ MonoBehaviour:
   swordCollider: {fileID: 416737541}
   blockCollider: {fileID: 389931519}
   reaspawnPoint: {fileID: 1291032812}
-  healthBar: {fileID: 1025214981}
+  healthBar: {fileID: 1964211069}
   scoreText: {fileID: 1552676815}
 --- !u!4 &531920109
 Transform:
