@@ -6,31 +6,50 @@ public class playerMovement : MonoBehaviour
 {
     public bool player1 =true;
 
+    public int health = 3;
+    public int deathCount;
+
+    [Header("Movement variables")]
+    public float rotationforce;
     public float speed;
     public float turnSpeed = 1;
+
+    [Header("Attack Variables")]
     public float attackforce;
-    public float rotationforce;
-    float lastAttackTime = -100f;
+    
     public float attackLength = 0.8f;
+    public float attackCooldownTime = 3;
+
+    [Header("Blocking variables")]
+    public float blockCooldownTime = 3;
+    public float blockLength;
+    public float blockForce;
+
+    [Header("References")]
+    public GameObject swordCollider;
+    public GameObject blockCollider;
+    public GameObject reaspawnPoint;
+
+
     Rigidbody rb;
     Vector3 attackDirection;
-    public int health = 3;
+    float lastBlockTime = -100f;
+
+
 
     //block
     Vector3 blockDirection;
-    float lastBlockTime = -100f;
-    public float blockLength;
-    public float blockForce;
-    public bool isAttacking;
+    
+    bool isAttacking;
+    float lastAttackTime = -100f;
 
-    public GameObject swordCollider;
-    public GameObject blockCollider;
-
+    
 
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        lastAttackTime = Time.time - attackCooldownTime;
     }
 
     // Update is called once per frame
@@ -38,9 +57,10 @@ public class playerMovement : MonoBehaviour
     {
         if (health == 0)
         {
-            //respawn code
+            health = 3;
+            GetComponent<Transform>().position = reaspawnPoint.GetComponent<Transform>().position;
 
-            //Death count code
+            deathCount += 1;
         } 
 
 
@@ -53,36 +73,36 @@ public class playerMovement : MonoBehaviour
 
 
 
-
-
             float moveSpeed = speed * moveInput;
 
             Vector3 newVelocity = transform.forward * moveSpeed;
-            newVelocity.y = rb.velocity.y;
-            rb.velocity = newVelocity; //Sets velocity of the player to movespeed in the forward direction
+           
+            rb.AddForce(newVelocity) ; //Sets velocity of the player to movespeed in the forward direction
 
             gameObject.GetComponent<Transform>().Rotate(Vector3.up * turnInput * turnSpeed); // Rotates the player around Y-axis
-
+            
+            bool canAttack = lastAttackTime + attackCooldownTime <= Time.time;
             bool attackInput = Input.GetKeyDown(KeyCode.Q);
-            if (attackInput)
+            if (attackInput && canAttack)
             {
 
                 attackDirection = transform.forward * attackforce;
 
                 lastAttackTime = Time.time;
 
-
+                
 
             }
 
 
             isAttacking = lastAttackTime + attackLength >= Time.time;
 
-            if (isAttacking)
+            if (isAttacking )
             {
                 rb.velocity = attackDirection;
                 gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
 
+               
                 swordCollider.GetComponent<BoxCollider>().enabled = true;
             }
             else
@@ -90,9 +110,9 @@ public class playerMovement : MonoBehaviour
                 //swordCollider.GetComponent<BoxCollider>().enabled = false;
             }
 
-
+            bool canBlock = lastBlockTime + blockCooldownTime <= Time.time;
             bool blockInput = Input.GetKeyDown(KeyCode.E);
-            if (blockInput)
+            if (blockInput && canBlock)
             {
 
                 blockDirection = transform.forward * blockForce;
@@ -105,7 +125,7 @@ public class playerMovement : MonoBehaviour
 
             if (isBlocking)
             {
-                rb.velocity = -blockDirection;
+                rb.velocity = blockDirection;
                 gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
 
                 blockCollider.GetComponent<BoxCollider>().enabled=true;
@@ -124,13 +144,14 @@ public class playerMovement : MonoBehaviour
             float moveSpeed = speed * moveInput;
 
             Vector3 newVelocity = transform.forward * moveSpeed;
-            newVelocity.y = rb.velocity.y;
-            rb.velocity = newVelocity; //Sets velocity of the player to movespeed in the forward direction
+            
+            rb.AddForce(newVelocity) ; //Sets velocity of the player to movespeed in the forward direction
 
             gameObject.GetComponent<Transform>().Rotate(Vector3.up * turnInput * turnSpeed); // Rotates the player around Y-axis
 
+            bool canAttack = lastAttackTime + attackCooldownTime <= Time.time;
             bool attackInput = Input.GetKeyDown(KeyCode.PageUp);
-            if (attackInput)
+            if (attackInput && canAttack)
             {
 
                 attackDirection = transform.forward * attackforce;
@@ -156,9 +177,9 @@ public class playerMovement : MonoBehaviour
                 swordCollider.GetComponent<BoxCollider>().enabled = false;
             }
 
-
+            bool canBlock = lastBlockTime + blockCooldownTime <= Time.time;
             bool blockInput = Input.GetKeyDown(KeyCode.PageDown);
-            if (blockInput)
+            if (blockInput && canBlock)
             {
 
                 blockDirection = transform.forward * blockForce;
@@ -171,7 +192,7 @@ public class playerMovement : MonoBehaviour
 
             if (isBlocking)
             {
-                rb.velocity = -blockDirection;
+                rb.velocity = blockDirection;
                 gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
 
                 blockCollider.GetComponent<BoxCollider>().enabled = true;
