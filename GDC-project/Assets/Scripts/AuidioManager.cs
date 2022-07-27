@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum sfx
 {
-    voiceLine, hitSound, blockSound, Cowbell, wooshSound
+    voiceLineHit, voiceLineBlock, hitSound, blockSound, Cowbell, wooshSound, battleEnd, battlestart,
 }
 
 public class AuidioManager : MonoBehaviour
@@ -14,7 +14,14 @@ public class AuidioManager : MonoBehaviour
 
     public AudioClip[] hitSounds;
     public AudioClip[] blocktSounds;
-    public AudioClip[] voiceLines;
+
+
+    public AudioClip[] voiceLinesBlcok;
+    public AudioClip[] voiceLinesHit;
+
+    public AudioClip[] voiceLineStart;
+    public AudioClip[] voiceLinesEnd;
+
     public AudioClip cowBell;
     public AudioClip wooshSound;
 
@@ -25,7 +32,6 @@ public class AuidioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -43,9 +49,14 @@ public class AuidioManager : MonoBehaviour
 
         switch (sfxMode)
         {
-            case sfx.voiceLine:
+            case sfx.voiceLineBlock:
+                SFXSource.PlayOneShot(voiceLinesBlcok[Random.Range(0, voiceLinesBlcok.Length)]);
 
-                SFXSource.PlayOneShot(voiceLines[Random.Range(0,voiceLines.Length)]);
+
+                break;
+            case sfx.voiceLineHit:
+
+                SFXSource.PlayOneShot(voiceLinesHit[Random.Range(0, voiceLinesHit.Length)]);
 
                 break;
             case sfx.hitSound:
@@ -66,6 +77,16 @@ public class AuidioManager : MonoBehaviour
             case sfx.wooshSound:
 
                 SFXSource.PlayOneShot(wooshSound);
+
+                break;
+            case sfx.battlestart:
+
+                SFXSource.PlayOneShot(voiceLineStart[Random.Range(0, voiceLineStart.Length)]);
+
+                break;
+            case sfx.battleEnd:
+
+                SFXSource.PlayOneShot(voiceLinesEnd[Random.Range(0, voiceLinesEnd.Length)]);
 
                 break;
             default:
