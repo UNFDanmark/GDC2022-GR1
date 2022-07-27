@@ -86,17 +86,16 @@ public class playerMovement : MonoBehaviour
             float turnInput = Input.GetAxis("Horizontal");
 
 
-
             float moveSpeed = speed * moveInput;
 
             Vector3 newVelocity = transform.forward * moveSpeed;
-           
-            rb.AddForce(newVelocity) ; //Sets velocity of the player to movespeed in the forward direction
+
+            rb.AddForce(newVelocity); //Sets velocity of the player to movespeed in the forward direction
 
             gameObject.GetComponent<Transform>().Rotate(Vector3.up * turnInput * turnSpeed); // Rotates the player around Y-axis
-            
+
             bool canAttack = lastAttackTime + attackCooldownTime <= Time.time;
-            bool attackInput = Input.GetKeyDown(KeyCode.Q);
+            bool attackInput = Input.GetKeyDown(KeyCode.E);
             if (attackInput && canAttack)
             {
 
@@ -104,19 +103,18 @@ public class playerMovement : MonoBehaviour
 
                 lastAttackTime = Time.time;
 
-                
+
 
             }
 
 
-            isAttacking = lastAttackTime + attackLength >= Time.time;
+            bool isAttacking = lastAttackTime + attackLength >= Time.time;
 
-            if (isAttacking )
+            if (isAttacking)
             {
                 rb.velocity = attackDirection;
-                gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
+                gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
 
-               
                 swordCollider.GetComponent<BoxCollider>().enabled = true;
             }
             else
@@ -124,8 +122,8 @@ public class playerMovement : MonoBehaviour
                 swordCollider.GetComponent<BoxCollider>().enabled = false;
             }
 
-            bool canBlock = lastBlockTime + blockCooldownTime >= Time.time;
-            bool blockInput = Input.GetKeyDown(KeyCode.E);
+            bool canBlock = lastBlockTime + blockCooldownTime <= Time.time;
+            bool blockInput = Input.GetKeyDown(KeyCode.Q);
             if (blockInput && canBlock)
             {
 
@@ -140,14 +138,15 @@ public class playerMovement : MonoBehaviour
             if (isBlocking)
             {
                 rb.velocity = blockDirection;
-                gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
+                gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
 
-                blockCollider.GetComponent<BoxCollider>().enabled=true;
+                blockCollider.GetComponent<BoxCollider>().enabled = true;
             }
             else
             {
                 blockCollider.GetComponent<BoxCollider>().enabled = false;
             }
+
         }
         else
         {
