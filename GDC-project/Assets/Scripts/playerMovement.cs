@@ -19,7 +19,9 @@ public class playerMovement : MonoBehaviour
 
     [Header("Attack Variables")]
     public float attackforce;
-    
+    public float invounrabilitytime;
+
+
     public float attackLength = 0.8f;
     public float attackCooldownTime = 3;
 
@@ -217,10 +219,10 @@ public class playerMovement : MonoBehaviour
 
         }
 
-        
-        
 
 
+
+        invounrabilitytime -= Time.deltaTime;
 
 
     }
@@ -234,12 +236,14 @@ public class playerMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         bool isSword = collision.gameObject.tag == "Sword";
-       
 
-        if (isSword)
+        bool invounrability = invounrabilitytime < 0;
+
+        if (isSword && invounrability)
         {
             takeDamage(1);
 
+            invounrabilitytime = 1;
             
             Image healthUIImage = healthBar.GetComponent<Image>();
             healthUIImage.fillAmount = (float)health / (float)3;
