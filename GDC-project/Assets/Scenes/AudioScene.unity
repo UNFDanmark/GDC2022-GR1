@@ -152,7 +152,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8c7abd82b7662514796e150fc239dacb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -249,7 +249,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &991898244
 GameObject:
@@ -285,16 +285,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e078742bd1c2d944a9430b5674d63f51, type: 3}
   blocktSounds:
   - {fileID: 8300000, guid: 79c6e1c3ff0e7c140b4c5243a65b43df, type: 3}
-  voiceLines:
-  - {fileID: 8300000, guid: 1dfb7ddcf220d4446bb3fb9b6ecc97bb, type: 3}
-  - {fileID: 8300000, guid: 2e7904680d5893c439cf38ed741a0304, type: 3}
+  voiceLinesBlcok:
   - {fileID: 8300000, guid: c01529ca1bda8864eaec9ed43a6afc06, type: 3}
   - {fileID: 8300000, guid: 5001891958d38a24dad96ea37a60ba50, type: 3}
-  - {fileID: 8300000, guid: f1c2318723322804ca9de2b158cc1e7a, type: 3}
+  voiceLinesHit:
   - {fileID: 8300000, guid: 0be60bf89ff15a4409835fc2cf2ec70d, type: 3}
+  - {fileID: 8300000, guid: f1c2318723322804ca9de2b158cc1e7a, type: 3}
+  - {fileID: 8300000, guid: 2e7904680d5893c439cf38ed741a0304, type: 3}
+  - {fileID: 8300000, guid: 1dfb7ddcf220d4446bb3fb9b6ecc97bb, type: 3}
+  voiceLineStart:
+  - {fileID: 8300000, guid: f864d415e41adcd449e5f09d73cf92ed, type: 3}
+  voiceLinesEnd:
+  - {fileID: 8300000, guid: 3254100274ec1f146b0abd751b6e848d, type: 3}
   cowBell: {fileID: 8300000, guid: bdaab1c43743d8f4ca15a1a546353723, type: 3}
   wooshSound: {fileID: 8300000, guid: f698a01e23886d949ac80e98042c54d6, type: 3}
-  sfxMode: 2
+  sfxMode: 6
 --- !u!4 &991898246
 Transform:
   m_ObjectHideFlags: 0
@@ -308,7 +313,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1962249547
 GameObject:
@@ -320,6 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1962249549}
   - component: {fileID: 1962249548}
+  - component: {fileID: 1962249550}
   m_Layer: 0
   m_Name: SFX
   m_TagString: Untagged
@@ -436,8 +442,17 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!170 &1962249550
+AudioDistortionFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962249547}
+  m_Enabled: 1
+  m_DistortionLevel: 0.5
 --- !u!1 &2016958667
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,5 +500,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
