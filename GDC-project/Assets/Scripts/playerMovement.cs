@@ -96,7 +96,7 @@ public class playerMovement : MonoBehaviour
             gameObject.GetComponent<Transform>().Rotate(Vector3.up * turnInput * turnSpeed); // Rotates the player around Y-axis
             
             bool canAttack = lastAttackTime + attackCooldownTime <= Time.time;
-            bool attackInput = Input.GetKeyDown(KeyCode.Q);
+            bool attackInput = Input.GetKeyDown(KeyCode.E);
             if (attackInput && canAttack)
             {
 
@@ -114,7 +114,7 @@ public class playerMovement : MonoBehaviour
             if (isAttacking )
             {
                 rb.velocity = attackDirection;
-                gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
+                gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
 
                
                 swordCollider.GetComponent<BoxCollider>().enabled = true;
@@ -125,7 +125,7 @@ public class playerMovement : MonoBehaviour
             }
 
             bool canBlock = lastBlockTime + blockCooldownTime >= Time.time;
-            bool blockInput = Input.GetKeyDown(KeyCode.E);
+            bool blockInput = Input.GetKeyDown(KeyCode.Q);
             if (blockInput && canBlock)
             {
 
@@ -140,7 +140,7 @@ public class playerMovement : MonoBehaviour
             if (isBlocking)
             {
                 rb.velocity = blockDirection;
-                gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
+                gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
 
                 blockCollider.GetComponent<BoxCollider>().enabled=true;
             }
