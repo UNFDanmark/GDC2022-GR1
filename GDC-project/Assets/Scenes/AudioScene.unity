@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -299,7 +299,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3254100274ec1f146b0abd751b6e848d, type: 3}
   cowBell: {fileID: 8300000, guid: bdaab1c43743d8f4ca15a1a546353723, type: 3}
   wooshSound: {fileID: 8300000, guid: f698a01e23886d949ac80e98042c54d6, type: 3}
-  sfxMode: 6
+  sfxMode: 1
 --- !u!4 &991898246
 Transform:
   m_ObjectHideFlags: 0
