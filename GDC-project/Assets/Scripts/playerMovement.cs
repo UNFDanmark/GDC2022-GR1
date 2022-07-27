@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class playerMovement : MonoBehaviour
 {
@@ -29,7 +32,9 @@ public class playerMovement : MonoBehaviour
     public GameObject swordCollider;
     public GameObject blockCollider;
     public GameObject reaspawnPoint;
-
+    public GameObject healthBar;
+    public TextMeshProUGUI scoreText;
+    
 
     Rigidbody rb;
     Vector3 attackDirection;
@@ -60,7 +65,14 @@ public class playerMovement : MonoBehaviour
             health = 3;
             GetComponent<Transform>().position = reaspawnPoint.GetComponent<Transform>().position;
 
+            Image healthUIImage = healthBar.GetComponent<Image>();
+            healthUIImage.fillAmount = (float)health / (float)3;
+
+
             deathCount += 1;
+
+            scoreText.text = deathCount.ToString();
+
         } 
 
 
@@ -226,6 +238,12 @@ public class playerMovement : MonoBehaviour
         if (isSword)
         {
             takeDamage(1);
+
+            
+            Image healthUIImage = healthBar.GetComponent<Image>();
+            healthUIImage.fillAmount = (float)health / (float)3;
+
+
         }
 
        
