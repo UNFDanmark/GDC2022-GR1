@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 389931520}
   m_Layer: 0
   m_Name: skjold (1)
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 484650720}
   m_Layer: 0
   m_Name: skjold (1)
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -601,8 +601,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7842294, y: 0.8163495, z: 0.688715}
-  m_Center: {x: 1.0999987, y: 0.37102103, z: 0.16941395}
+  m_Size: {x: 0.78423107, y: 0.8163495, z: 0.5223587}
+  m_Center: {x: 1.1000025, y: 0.37102678, z: 0.3921047}
 --- !u!4 &484650723
 Transform:
   m_ObjectHideFlags: 0
@@ -865,8 +865,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.00390835, y: 0.0036625133, z: 0.0108145075}
-  m_Center: {x: -0.00010167409, y: -0.00052344473, z: 0.0066717416}
+  m_Size: {x: 0.002956962, y: 0.0019152719, z: 0.00819948}
+  m_Center: {x: 0.00037402008, y: 0.0001694308, z: 0.0074738623}
 --- !u!54 &671312659
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -975,6 +975,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "h\xF8tyv (1)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0cc0a74d337aeae4f86cba3f1331fce0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Sword
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cc0a74d337aeae4f86cba3f1331fce0, type: 3}
@@ -2013,6 +2018,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "h\xF8tyv (1)"
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0cc0a74d337aeae4f86cba3f1331fce0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Sword
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cc0a74d337aeae4f86cba3f1331fce0, type: 3}
 --- !u!1001 &1949097336
@@ -2344,7 +2354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8acdb17fcf700448870e4808c0fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 500
   passedTime: 0
   timer: {fileID: 1375235911}
 --- !u!4 &2131757434

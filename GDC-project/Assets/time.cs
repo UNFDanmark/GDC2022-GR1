@@ -7,7 +7,7 @@ using TMPro;
 public class time : MonoBehaviour
 {
 
-    public float timeLimit;
+    public static float timeLimit;
     public float passedTime;
     int counter;
     public TextMeshProUGUI timer;
