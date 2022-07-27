@@ -19,9 +19,7 @@ public class playerMovement : MonoBehaviour
 
     [Header("Attack Variables")]
     public float attackforce;
-    public float invounrabilitytime;
-
-
+    
     public float attackLength = 0.8f;
     public float attackCooldownTime = 3;
 
@@ -88,16 +86,17 @@ public class playerMovement : MonoBehaviour
             float turnInput = Input.GetAxis("Horizontal");
 
 
+
             float moveSpeed = speed * moveInput;
 
             Vector3 newVelocity = transform.forward * moveSpeed;
-
-            rb.AddForce(newVelocity); //Sets velocity of the player to movespeed in the forward direction
+           
+            rb.AddForce(newVelocity) ; //Sets velocity of the player to movespeed in the forward direction
 
             gameObject.GetComponent<Transform>().Rotate(Vector3.up * turnInput * turnSpeed); // Rotates the player around Y-axis
-
+            
             bool canAttack = lastAttackTime + attackCooldownTime <= Time.time;
-            bool attackInput = Input.GetKeyDown(KeyCode.E);
+            bool attackInput = Input.GetKeyDown(KeyCode.Q);
             if (attackInput && canAttack)
             {
 
@@ -105,18 +104,19 @@ public class playerMovement : MonoBehaviour
 
                 lastAttackTime = Time.time;
 
-
+                
 
             }
 
 
-            bool isAttacking = lastAttackTime + attackLength >= Time.time;
+            isAttacking = lastAttackTime + attackLength >= Time.time;
 
-            if (isAttacking)
+            if (isAttacking )
             {
                 rb.velocity = attackDirection;
-                gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
+                gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
 
+               
                 swordCollider.GetComponent<BoxCollider>().enabled = true;
             }
             else
@@ -124,8 +124,8 @@ public class playerMovement : MonoBehaviour
                 swordCollider.GetComponent<BoxCollider>().enabled = false;
             }
 
-            bool canBlock = lastBlockTime + blockCooldownTime <= Time.time;
-            bool blockInput = Input.GetKeyDown(KeyCode.Q);
+            bool canBlock = lastBlockTime + blockCooldownTime >= Time.time;
+            bool blockInput = Input.GetKeyDown(KeyCode.E);
             if (blockInput && canBlock)
             {
 
@@ -140,15 +140,14 @@ public class playerMovement : MonoBehaviour
             if (isBlocking)
             {
                 rb.velocity = blockDirection;
-                gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
+                gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
 
-                blockCollider.GetComponent<BoxCollider>().enabled = true;
+                blockCollider.GetComponent<BoxCollider>().enabled=true;
             }
             else
             {
                 blockCollider.GetComponent<BoxCollider>().enabled = false;
             }
-
         }
         else
         {
@@ -219,10 +218,10 @@ public class playerMovement : MonoBehaviour
 
         }
 
+        
+        
 
 
-
-        invounrabilitytime -= Time.deltaTime;
 
 
     }
@@ -236,14 +235,12 @@ public class playerMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         bool isSword = collision.gameObject.tag == "Sword";
+       
 
-        bool invounrability = invounrabilitytime < 0;
-
-        if (isSword && invounrability)
+        if (isSword)
         {
             takeDamage(1);
 
-            invounrabilitytime = 1;
             
             Image healthUIImage = healthBar.GetComponent<Image>();
             healthUIImage.fillAmount = (float)health / (float)3;

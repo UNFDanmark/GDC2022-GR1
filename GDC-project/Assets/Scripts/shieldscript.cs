@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class shieldscript : MonoBehaviour
 {
@@ -10,7 +8,6 @@ public class shieldscript : MonoBehaviour
     public GameObject opponent;
     public GameObject player;
     AuidioManager audioManager;
-    public GameObject healthBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,16 +36,9 @@ public class shieldscript : MonoBehaviour
 
             opponent.GetComponent<Rigidbody>().velocity = -direction * knockbackForce;
 
-            print(opponent.GetComponent<playerMovement>().health);
-            opponent.GetComponent<playerMovement>().health -= 1;
-
-
-            Image healthUIImage = healthBar.GetComponent<Image>();
-            healthUIImage.fillAmount = (float)opponent.GetComponent<playerMovement>().health / (float)3;
-
-
         }
-        
+
 
     }
 }
+
