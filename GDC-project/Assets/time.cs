@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class time : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class time : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
+
+
+
         if(counter < passedTime)
         {
             counter++;
@@ -28,5 +34,12 @@ public class time : MonoBehaviour
         }
         passedTime += Time.deltaTime;
         timer.text = timeLimit.ToString();
+
+        if (timeLimit <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
+
+  
 }

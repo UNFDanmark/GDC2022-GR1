@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -19,17 +20,24 @@ public class MainMenu : MonoBehaviour
     public AudioSource music;
     public AudioSource sfxV;
 
+    public TextMeshProUGUI textTimer;
+
+
+   
+
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        time.timeLimit = 60;
     }
 
     // Update is called once per frame
     void Update()
     {
+        textTimer.text = time.timeLimit.ToString() + "S";
+
         sfxVolume = sfxSlider.value;
         musicVolume = musicSlider.value;
 
@@ -61,11 +69,21 @@ public class MainMenu : MonoBehaviour
 
     public void moreTime()
     {
-        
+        if(time.timeLimit < 100)
+        {
+            time.timeLimit += 10;
+
+        }
     }
 
     public void lessTime()
     {
-   }
+
+        if (time.timeLimit >= 30)
+        {
+            time.timeLimit -= 10;
+
+        }
+    }
 }
 

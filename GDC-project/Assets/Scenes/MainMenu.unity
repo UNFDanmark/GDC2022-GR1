@@ -269,7 +269,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1525090555}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: mainMenu_
+        m_MethodName: lessTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8470,6 +8470,7 @@ MonoBehaviour:
   musicSlider: {fileID: 416038798}
   music: {fileID: 1853008307}
   sfxV: {fileID: 223266318}
+  textTimer: {fileID: 840829257}
 --- !u!4 &1525090556
 Transform:
   m_ObjectHideFlags: 0
@@ -9831,7 +9832,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1525090555}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: mainMenu_
+        m_MethodName: moreTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

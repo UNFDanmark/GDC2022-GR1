@@ -1968,6 +1968,7 @@ MonoBehaviour:
   reaspawnPoint: {fileID: 1634985161}
   healthBar: {fileID: 1348038881}
   scoreText: {fileID: 86908788}
+  anim: {fileID: 1785549018}
 --- !u!4 &226082179
 Transform:
   m_ObjectHideFlags: 0
@@ -12875,6 +12876,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781349633}
   m_Mesh: {fileID: -5495902117074765545, guid: ac1df31b70f03f64c8a37de29bab9050, type: 3}
+--- !u!1 &1785549017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cfa747ca7106ca8478fe363147e52aed,
+    type: 3}
+  m_PrefabInstance: {fileID: 1396902367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1785549018
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785549017}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 776ed263dc31b26489c045d4e7d82995, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1791649468
 GameObject:
   m_ObjectHideFlags: 0
@@ -15602,6 +15629,7 @@ MonoBehaviour:
   reaspawnPoint: {fileID: 1291032812}
   healthBar: {fileID: 939721396}
   scoreText: {fileID: 121624943}
+  anim: {fileID: 919132148646100042}
 --- !u!4 &2089879262
 Transform:
   m_ObjectHideFlags: 0
@@ -16284,6 +16312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450653167544051}
+  - component: {fileID: 919132148646100042}
   m_Layer: 0
   m_Name: Scarecrow Moving Animations (1)
   m_TagString: Untagged
@@ -16291,6 +16320,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &919132148646100042
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148646100041}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 776ed263dc31b26489c045d4e7d82995, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &919132149127871681
 GameObject:
   m_ObjectHideFlags: 0

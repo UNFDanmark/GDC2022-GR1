@@ -51,7 +51,7 @@ public class playerMovement : MonoBehaviour
     bool isAttacking;
     float lastAttackTime = -100f;
 
-    
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +64,9 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        anim.SetFloat("Velocity", (rb.velocity.x + rb.velocity.y));
 
         invounrabilitytime -= Time.deltaTime;
 

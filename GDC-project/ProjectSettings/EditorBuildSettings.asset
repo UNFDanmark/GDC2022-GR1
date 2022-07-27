@@ -11,4 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PvP game 2.unity
     guid: e62fc4d8a3b63bc44b19ce2ddda429f5
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: d4a85b861767c164ba5c696be660012c,
+      type: 2}
