@@ -124,7 +124,7 @@ public class playerMovement : MonoBehaviour
                 swordCollider.GetComponent<BoxCollider>().enabled = false;
             }
 
-            bool canBlock = lastBlockTime + blockCooldownTime <= Time.time;
+            bool canBlock = lastBlockTime + blockCooldownTime >= Time.time;
             bool blockInput = Input.GetKeyDown(KeyCode.E);
             if (blockInput && canBlock)
             {
@@ -140,7 +140,7 @@ public class playerMovement : MonoBehaviour
             if (isBlocking)
             {
                 rb.velocity = blockDirection;
-                gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
+                gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
 
                 blockCollider.GetComponent<BoxCollider>().enabled=true;
             }
@@ -207,7 +207,7 @@ public class playerMovement : MonoBehaviour
             if (isBlocking)
             {
                 rb.velocity = blockDirection;
-                gameObject.GetComponent<Transform>().Rotate(Vector3.up * rotationforce);
+                gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
 
                 blockCollider.GetComponent<BoxCollider>().enabled = true;
             }
