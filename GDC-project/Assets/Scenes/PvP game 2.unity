@@ -1986,8 +1986,8 @@ MonoBehaviour:
   health: 3
   deathCount: 0
   rotationforce: 8
-  speed: 60
-  turnSpeed: 6
+  speed: 47
+  turnSpeed: 4
   attackforce: 8.15
   attackLength: 0.2
   attackCooldownTime: 1.5
@@ -16245,8 +16245,8 @@ MonoBehaviour:
   health: 3
   deathCount: 0
   rotationforce: 8
-  speed: 60
-  turnSpeed: 6
+  speed: 47
+  turnSpeed: 4
   attackforce: 8.15
   attackLength: 0.2
   attackCooldownTime: 1.5
