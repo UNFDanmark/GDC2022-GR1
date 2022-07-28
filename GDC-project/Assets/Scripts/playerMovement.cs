@@ -262,7 +262,12 @@ public class playerMovement : MonoBehaviour
     {
         health -= damageToTake;
         audioManager.playSound(sfx.hitSound);
-        audioManager.playSound(sfx.voiceLineHit);
+
+        if(time.timeLimit > 0)
+        {
+            audioManager.playSound(sfx.voiceLineHit);
+
+        }
 
 
     }
