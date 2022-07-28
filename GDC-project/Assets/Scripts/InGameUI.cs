@@ -38,6 +38,8 @@ public class InGameUI : MonoBehaviour
     public void returnToMain()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+
     }
-   
+
 }

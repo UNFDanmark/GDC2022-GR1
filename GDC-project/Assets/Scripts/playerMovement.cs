@@ -79,7 +79,6 @@ public class playerMovement : MonoBehaviour
         {
             if (deathCount < opponent.deathCount)
             {
-                Time.timeScale = 0;
                 playerWon = gameObject.name;
                 inGameUI_.playerTxt.text = playerWon;
 
