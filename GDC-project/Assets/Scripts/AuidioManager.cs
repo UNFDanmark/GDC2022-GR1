@@ -101,10 +101,9 @@ public class AuidioManager : MonoBehaviour
                 }
                 break;
             case sfx.battleEnd:
-                if (chance > 80)
-                {
+                
                     SFXSource.PlayOneShot(voiceLinesEnd[Random.Range(0, voiceLinesEnd.Length)], 0.2f);
-                }
+                
                 break;
             default:
                 break;

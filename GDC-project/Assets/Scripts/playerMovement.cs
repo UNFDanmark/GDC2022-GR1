@@ -71,7 +71,6 @@ public class playerMovement : MonoBehaviour
     void Update()
     {
 
-        inGameUI_.playerTxt.text = playerWon;
         anim.SetFloat("Velocity", Mathf.Abs(rb.velocity.x)  + Mathf.Abs(rb.velocity.y));
 
         invounrabilitytime -= Time.deltaTime;
@@ -81,8 +80,10 @@ public class playerMovement : MonoBehaviour
             if (deathCount < opponent.deathCount)
             {
                 Time.timeScale = 0;
-                print("dadajwdkhawdwadhwa");
                 playerWon = gameObject.name;
+                inGameUI_.playerTxt.text = playerWon;
+                audioManager.playSound(sfx.battleEnd);
+
             }
         }
 
