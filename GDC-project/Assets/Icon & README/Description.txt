@@ -1,0 +1,44 @@
+- Description -
+
+	This is a two player game where the goal is to kill your opponent in the given amount of time
+	
+	You can attack your opponent by turning your pitchfork fast into them but wach out
+	as if your opponent blocks you with their shield you will be the one to loose a life
+
+- Controls -
+	Player 1
+
+	W S - Move
+	A D - Turn
+	Q - Shield
+	E - Attack
+
+
+	Player 2
+
+	I K - Move
+	J L - Turn
+	O - Shield
+	U - Attack
+
+---------------------------------------------
+   `7MMF' .g8""8q. `7MMM.     ,MMF'`7MM"""Yp, 
+     MM .dP'    `YM. MMMb    dPMM    MM    Yb 
+     MM dM'      `MM M YM   ,M MM    MM    dP 
+     MM MM        MM M  Mb  M' MM    MM"""bg. 
+     MM MM.      ,MP M  YM.P'  MM    MM    `Y 
+(O   MM `Mb.    ,dP' M  `YM'   MM    MM    ,9 
+ Ymmm9    `"bmmd"' .JML. `'  .JMML..JMMmmmd9  
+---------------------------------------------
+
+- Credits -
+
+	Momoh, Emil - 3D Graphics
+
+	Oleg L, Daniel - Programing
+ 
+	Aske - 2D Graphics 
+	
+	Oleg - Sound and music
+
+	 
