@@ -35,10 +35,7 @@ public class time : MonoBehaviour
         passedTime += Time.deltaTime;
         timer.text = timeLimit.ToString();
 
-        if (timeLimit <= 0)
-        {
-            SceneManager.LoadScene(0);
-        }
+       
     }
 
   

@@ -12,6 +12,9 @@ public class shieldscript : MonoBehaviour
     AuidioManager audioManager;
     public GameObject healthBar;
     public playerMovement playerInv;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +36,7 @@ public class shieldscript : MonoBehaviour
             print("hit");
 
             audioManager.playSound(sfx.blockSound);
-
+            audioManager.playSound(sfx.voiceLineBlock);
             //Vector3 direction=collision.transform.position;
 
             Vector3 direction=player.GetComponent<Transform>().position - opponent.GetComponent<Transform>().position ;

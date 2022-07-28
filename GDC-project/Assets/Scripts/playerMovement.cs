@@ -35,8 +35,13 @@ public class playerMovement : MonoBehaviour
     public GameObject reaspawnPoint;
     public GameObject healthBar;
     public TextMeshProUGUI scoreText;
+   
     AuidioManager audioManager;
+    InGameUI inGameUI_;
+    time timer;
+    public playerMovement opponent;
 
+    string playerWon;
 
 
     Rigidbody rb;
@@ -59,19 +64,33 @@ public class playerMovement : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         lastAttackTime = Time.time - attackCooldownTime;
         audioManager = GameObject.Find("AudioManager").GetComponent<AuidioManager>();
+        inGameUI_ = GameObject.Find("Camera").GetComponent<InGameUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-
-        anim.SetFloat("Velocity", (rb.velocity.x + rb.velocity.y));
+        inGameUI_.playerTxt.text = playerWon;
+        anim.SetFloat("Velocity", Mathf.Abs(rb.velocity.x)  + Mathf.Abs(rb.velocity.y));
 
         invounrabilitytime -= Time.deltaTime;
 
-        if (health == 0)
+       if(time.timeLimit <= 0)
         {
+            if (deathCount < opponent.deathCount)
+            {
+                Time.timeScale = 0;
+                print("dadajwdkhawdwadhwa");
+                playerWon = gameObject.name;
+            }
+        }
+
+        if (health == 0 && time.timeLimit > 0)
+        {
+            audioManager.playSound(sfx.Cowbell);
+
+
             health = 3;
             GetComponent<Transform>().position = reaspawnPoint.GetComponent<Transform>().position;
 
@@ -106,7 +125,7 @@ public class playerMovement : MonoBehaviour
             bool attackInput = Input.GetKeyDown(KeyCode.E);
             if (attackInput && canAttack)
             {
-
+                audioManager.playSound(sfx.wooshSound);
                 attackDirection = transform.forward * attackforce;
 
                 lastAttackTime = Time.time;
@@ -135,6 +154,7 @@ public class playerMovement : MonoBehaviour
             bool blockInput = Input.GetKeyDown(KeyCode.Q);
             if (blockInput && canBlock)
             {
+                audioManager.playSound(sfx.wooshSound);
 
                 blockDirection = transform.forward * blockForce;
 
@@ -171,9 +191,10 @@ public class playerMovement : MonoBehaviour
             gameObject.GetComponent<Transform>().Rotate(Vector3.up * turnInput * turnSpeed); // Rotates the player around Y-axis
 
             bool canAttack = lastAttackTime + attackCooldownTime <= Time.time;
-            bool attackInput = Input.GetKeyDown(KeyCode.PageUp);
+            bool attackInput = Input.GetKeyDown(KeyCode.U);
             if (attackInput && canAttack)
             {
+                audioManager.playSound(sfx.wooshSound);
 
                 attackDirection = transform.forward * attackforce;
 
@@ -199,9 +220,10 @@ public class playerMovement : MonoBehaviour
             }
 
             bool canBlock = lastBlockTime + blockCooldownTime <= Time.time;
-            bool blockInput = Input.GetKeyDown(KeyCode.PageDown);
+            bool blockInput = Input.GetKeyDown(KeyCode.O);
             if (blockInput && canBlock)
             {
+                audioManager.playSound(sfx.wooshSound);
 
                 blockDirection = transform.forward * blockForce;
 
@@ -213,6 +235,7 @@ public class playerMovement : MonoBehaviour
 
             if (isBlocking)
             {
+
                 rb.velocity = blockDirection;
                 gameObject.GetComponent<Transform>().Rotate(Vector3.up * -rotationforce);
 
@@ -237,6 +260,10 @@ public class playerMovement : MonoBehaviour
     public void takeDamage(int damageToTake)
     {
         health -= damageToTake;
+        audioManager.playSound(sfx.hitSound);
+        audioManager.playSound(sfx.voiceLineHit);
+
+
     }
 
     private void OnCollisionEnter(Collision collision)

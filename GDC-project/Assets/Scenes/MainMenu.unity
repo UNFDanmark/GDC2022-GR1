@@ -254,7 +254,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1853008307}
+      - m_Target: {fileID: 223266318}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
         m_Mode: 2
@@ -375,7 +375,7 @@ RectTransform:
   m_GameObject: {fileID: 84493775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.0077, y: 2.0077, z: 2.0077}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 830271891}
@@ -383,7 +383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00027466, y: -0.0017548}
+  m_AnchoredPosition: {x: 0.00024072, y: -0.0017479}
   m_SizeDelta: {x: 1920, y: 1081.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84493777
@@ -1136,7 +1136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415764558}
   m_LocalRotation: {x: 0, y: 0.88171554, z: -0, w: -0.4717815}
-  m_LocalPosition: {x: 87, y: -37.3, z: 70.9}
+  m_LocalPosition: {x: 87, y: -43.1, z: 70.9}
   m_LocalScale: {x: 35.6, y: 35.6, z: 35.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6897,7 +6897,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1853008307}
+      - m_Target: {fileID: 223266318}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
         m_Mode: 2
@@ -8209,7 +8209,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1853008307}
+      - m_Target: {fileID: 223266318}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
         m_Mode: 2
@@ -8327,7 +8327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478386077}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0.87, z: -3.49}
+  m_LocalPosition: {x: 0, y: 0.41, z: -3.49}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9317,7 +9317,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 65
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -9817,7 +9817,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1853008307}
+      - m_Target: {fileID: 223266318}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
         m_Mode: 2
@@ -9981,7 +9981,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1853008307}
+      - m_Target: {fileID: 223266318}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
         m_Mode: 2
@@ -10659,7 +10659,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1853008307}
+      - m_Target: {fileID: 223266318}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
         m_Mode: 2
@@ -10919,7 +10919,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322490872758197090}
   m_LocalRotation: {x: -0, y: -0.8607421, z: -0, w: -0.5090413}
-  m_LocalPosition: {x: -53.862934, y: -38.037476, z: 69.80926}
+  m_LocalPosition: {x: -53.862934, y: -43.837475, z: 69.80926}
   m_LocalScale: {x: 36.38, y: 36.38, z: 36.38}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11134,7 +11134,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4535293899685214689}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0.87, z: -3.49}
+  m_LocalPosition: {x: 0, y: 0.42, z: -3.49}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
