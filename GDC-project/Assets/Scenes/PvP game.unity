@@ -186,13 +186,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player1: 0
+  invounrabilitytime: 0
   health: 3
   deathCount: 0
   rotationforce: 5.7
   speed: 47
   turnSpeed: 3.15
   attackforce: 8.15
-  invounrabilitytime: 0
   attackLength: 0.2
   attackCooldownTime: 1.5
   blockCooldownTime: 1.5
@@ -203,6 +203,7 @@ MonoBehaviour:
   reaspawnPoint: {fileID: 1634985161}
   healthBar: {fileID: 1025214981}
   scoreText: {fileID: 2097665916}
+  anim: {fileID: 0}
 --- !u!4 &41568412
 Transform:
   m_ObjectHideFlags: 0
@@ -456,6 +457,7 @@ MonoBehaviour:
   opponent: {fileID: 41568408}
   player: {fileID: 531920104}
   healthBar: {fileID: 0}
+  playerInv: {fileID: 0}
 --- !u!54 &389931521
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -577,6 +579,7 @@ MonoBehaviour:
   opponent: {fileID: 531920104}
   player: {fileID: 41568408}
   healthBar: {fileID: 0}
+  playerInv: {fileID: 0}
 --- !u!54 &484650721
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -699,13 +702,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player1: 1
+  invounrabilitytime: 0
   health: 3
   deathCount: 0
   rotationforce: 5.7
   speed: 47
   turnSpeed: 3.15
   attackforce: 8.15
-  invounrabilitytime: 0
   attackLength: 0.2
   attackCooldownTime: 1.5
   blockCooldownTime: 1.5
@@ -716,6 +719,7 @@ MonoBehaviour:
   reaspawnPoint: {fileID: 1291032812}
   healthBar: {fileID: 1964211069}
   scoreText: {fileID: 1552676815}
+  anim: {fileID: 0}
 --- !u!4 &531920109
 Transform:
   m_ObjectHideFlags: 0

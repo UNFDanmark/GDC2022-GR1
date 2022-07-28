@@ -49,19 +49,30 @@ public class AuidioManager : MonoBehaviour
 
     public void playSound(sfx soundMode)
     {
+        int chance = Random.Range(0, 101);
+
         sfxMode = soundMode;
 
         switch (sfxMode)
         {
             case sfx.voiceLineBlock:
-                SFXSource.PlayOneShot(voiceLinesBlcok[Random.Range(0, voiceLinesBlcok.Length)]);
+
+
+                if(chance > 80)
+                {
+                    SFXSource.PlayOneShot(voiceLinesBlcok[Random.Range(0, voiceLinesBlcok.Length)], 0.2f);
+
+                }
 
 
                 break;
             case sfx.voiceLineHit:
+              
 
-                SFXSource.PlayOneShot(voiceLinesHit[Random.Range(0, voiceLinesHit.Length)]);
-
+                if (chance > 80)
+                {
+                    SFXSource.PlayOneShot(voiceLinesHit[Random.Range(0, voiceLinesHit.Length)], 0.2f);
+                }
                 break;
             case sfx.hitSound:
 
@@ -84,14 +95,16 @@ public class AuidioManager : MonoBehaviour
 
                 break;
             case sfx.battlestart:
-
-                SFXSource.PlayOneShot(voiceLineStart[Random.Range(0, voiceLineStart.Length)]);
-
+                if (chance > 80)
+                {
+                    SFXSource.PlayOneShot(voiceLineStart[Random.Range(0, voiceLineStart.Length)], 0.2f);
+                }
                 break;
             case sfx.battleEnd:
-
-                SFXSource.PlayOneShot(voiceLinesEnd[Random.Range(0, voiceLinesEnd.Length)]);
-
+                if (chance > 80)
+                {
+                    SFXSource.PlayOneShot(voiceLinesEnd[Random.Range(0, voiceLinesEnd.Length)], 0.2f);
+                }
                 break;
             default:
                 break;
