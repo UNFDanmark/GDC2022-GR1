@@ -48,7 +48,7 @@ public class playerMovement : MonoBehaviour
     Vector3 attackDirection;
     float lastBlockTime = -100f;
 
-
+    bool end;
 
     //block
     Vector3 blockDirection;
@@ -82,7 +82,13 @@ public class playerMovement : MonoBehaviour
                 Time.timeScale = 0;
                 playerWon = gameObject.name;
                 inGameUI_.playerTxt.text = playerWon;
-                audioManager.playSound(sfx.battleEnd);
+
+                if(end == false)
+                {
+                    audioManager.playSound(sfx.battleEnd);
+                    end = true;
+
+                }
 
             }
         }
@@ -262,7 +268,7 @@ public class playerMovement : MonoBehaviour
     {
         health -= damageToTake;
         audioManager.playSound(sfx.hitSound);
-
+        Shake.start = true;
         if(time.timeLimit > 0)
         {
             audioManager.playSound(sfx.voiceLineHit);

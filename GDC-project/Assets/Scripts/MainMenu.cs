@@ -69,7 +69,7 @@ public class MainMenu : MonoBehaviour
 
     public void moreTime()
     {
-        if(time.timeLimit < 100)
+        if(time.timeLimit < 300)
         {
             time.timeLimit += 10;
 

@@ -33,7 +33,7 @@ public class shieldscript : MonoBehaviour
 
         if (isSword)
         {
-            print("hit");
+            Shake.start = true;
 
             audioManager.playSound(sfx.blockSound);
             audioManager.playSound(sfx.voiceLineBlock);
